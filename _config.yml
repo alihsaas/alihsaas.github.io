@@ -20,14 +20,18 @@
 
 title: Get Started Luau
 email: alihsaas2@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Detailed explanation of everything you need
-  to know to get started with <strong>Luau</strong>.
+description: Explanation of everything you need to know to get started with <strong>Luau</strong>.
 show_downloads: false
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: _alihsaas
 github_username:  alihsaas
+
+github:
+  is_user_page: false
+  is_project_page: true
+  owner_url: https://www.github.com/alihsaas/alihsaas.github.io
+  owner_name: alihsaas
 
 # Build settings
 theme: jekyll-theme-minimal

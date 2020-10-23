@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   {% seo %}
@@ -42,21 +41,28 @@
       </ul>
       {% endif %}
       <hr>
-      {% for lesson in site.data.lessons %}
-      <a href={{lesson.id}}>{{lesson.name}}</a>
-      {% if lesson.detail %}
-      <small>{{lesson.detail}}</small>
-      {% endif %}
-      {% if lesson.contents %}
-      <ol>
-        {% for content in lesson.contents %}
-        <li>
-          <a href="{{ lesson.id | append: "/" | append: content.id}}" title="{{ content.detail }}">{{content.name}}</a>
-        </li>
-        {% endfor %}
-      </ol>
-      {% endif %}
-      {% endfor %}
+      <div id="chapters-list">
+        <ol style="display: contents;">
+          {% for chapter in site.data.chapters %}
+          <li>
+            <a href={{chapter.id}}>{{chapter.name}}</a>
+            {% if chapter.detail %}
+            <small>{{chapter.detail}}</small>
+            {% endif %}
+            {% if chapter.contents %}
+            <ol>
+              {% for content in chapter.contents %}
+              <li>
+                <a href="{{ "/" | absolute_url | append: chapter.id | append: "/" | append: content.id}}"
+                  title="{{ content.detail }}">{{content.name}}</a>
+              </li>
+              {% endfor %}
+            </ol>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
       <hr>
     </header>
     <section>
@@ -64,7 +70,7 @@
       {{ content }}
 
     </section>
-    <footer>
+    <footer style="margin: auto;">
       {% if site.github.is_project_page %}
       <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
       {% endif %}
